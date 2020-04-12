@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {TextInput, Surface, Title, Button, Text} from 'react-native-paper';
 import * as SecureStore from 'expo-secure-store';
+import {Image} from "react-native-elements";
 
 export default function EntryScreen({navigation}) {
   const [username, setUsername] = useState('');
@@ -46,7 +47,12 @@ export default function EntryScreen({navigation}) {
   }
 
   return (
+    <View style={{flex: 1, backgroundColor: '#ffffff'}}>
     <View style={styles.container}>
+      <Image
+        style={{height: 200, width: 200, marginBottom: 10}}
+        source={{uri: 'https://cdn.discordapp.com/attachments/694198714889404447/698890300914925618/Whist.png'}}
+      />
       <Surface style={styles.entrySurface}>
         <View style={styles.formContainer}>
           {!isLogin ? <TextInput
@@ -95,6 +101,7 @@ export default function EntryScreen({navigation}) {
         </View>
       </Surface>
     </View>
+    </View>
   );
 }
 
@@ -102,7 +109,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 20,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   entrySurface: {
     flex: -1,

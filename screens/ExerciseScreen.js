@@ -4,6 +4,7 @@ import BodyModel from '../components/BodyModel';
 import {Text, Title} from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import ExerciseSearchScreen from './ExerciseSearchScreen';
+import WorkoutScreen from "./WorkoutScreen";
 
 function Color(props) {
   return <View style={[styles.color, {backgroundColor: props.color}]} />;
@@ -63,6 +64,10 @@ export default function ExerciseScreen() {
       <Stack.Screen
         name="ExerciseSearch"
         component={ExerciseSearchScreen}
+      />
+      <Stack.Screen
+        name="Workout"
+        component={WorkoutScreen}
       />
     </Stack.Navigator>
   );

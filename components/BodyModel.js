@@ -18,7 +18,7 @@ function Column({flex, empty, type, color}) {
   return (
     <TouchableScale
       style={[styles.column, {flex}, borderStyle, {backgroundColor: color}]}
-      onPress={() => navigation.navigate("ExerciseSearch", {type})}
+      onPress={() => navigation.navigate("Workout", {type})}
     />
   );
 }

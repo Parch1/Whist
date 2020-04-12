@@ -73,39 +73,12 @@ export default function Profile(props) {
         <Surface style={{
           marginVertical: 20,
           borderRadius: 20,
-          padding: CONTAINER_PADDING
+          padding: CONTAINER_PADDING,
+          flex: -1,
+          alignItems: 'center',
+          justifyContent: 'center'
         }}>
-          <LineChart
-            data={{
-              labels: ["Apr 6", "Apr 7", "Apr 8", "Apr 9", "Apr 10", "Apr 11"],
-              datasets: [
-                {
-                  data: [20, 45, 28, 80, 99, 43]
-                }
-              ]
-            }}
-            width={Dimensions.get("window").width - 4 * CONTAINER_PADDING}
-            height={100}
-            withVerticalLabels={false}
-            chartConfig={{
-              fillShadowGradient: '#ffa726',
-              decimalPlaces: 2, // optional, defaults to 2dp
-              color: (opacity = 1) => `rgba(255, 160, 0, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: {
-                borderRadius: 16,
-              },
-              propsForDots: {
-                r: "3",
-                strokeWidth: "1",
-                stroke: "#ffa726"
-              }
-            }}
-            style={{
-              marginVertical: 10,
-              borderRadius: 16,
-            }}
-          />
+          <Text>Not enough data to display a chart.</Text>
         </Surface>
       </View>
     </View>

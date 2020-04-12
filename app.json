@@ -12,7 +12,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "https://cdn.discordapp.com/attachments/694198714889404447/698890300914925618/Whist.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
