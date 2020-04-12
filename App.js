@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import EntryScreen from './screens/EntryScreen';
-import { Avatar } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +24,6 @@ export default function App(props) {
         await Font.loadAsync({
           ...Ionicons.font,
           'montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
-          'monsterrat-bold': require('./assets/fonts/Montserrat-Bold.otf'),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

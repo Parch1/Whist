@@ -1,12 +1,11 @@
 import React from "react";
 import { StyleSheet, Dimensions, ScrollView } from "react-native";
-import { Block, theme, Text } from "galio-framework";
+import { Block, theme, Text, Card, Button } from "galio-framework";
 
-import { Card, Button } from "../components";
-import articles from "../constants/articles";
+import articles from "../constants/Articles";
 const { width } = Dimensions.get("screen");
 
-class Home extends React.Component {
+class OldExerciseScreen extends React.Component {
   renderArticles = () => {
     return (
       <ScrollView
@@ -14,7 +13,7 @@ class Home extends React.Component {
         contentContainerStyle={styles.articles}
       >
         <Block flex>
-        <Card item={articles[0]} horizontal />
+          <Card item={articles[0]} horizontal />
           <Block flex row>
             <Card
               item={articles[1]}
@@ -46,9 +45,7 @@ const styles = StyleSheet.create({
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE,
     paddingHorizontal: 2,
-    fontFamily: 'montserrat-regular'
-
   }
 });
 
-export default Home;
+export default OldExerciseScreen;
