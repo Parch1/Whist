@@ -17,13 +17,13 @@ import truncate from 'lodash/truncate';
 
 const chatClient = new StreamChat('f8wwud5et5jd');
 const userToken =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoic29mdC12aW9sZXQtMCJ9.bOCdQ6kFMYw7suo1usCi-WS95E0PxAsm2CP0YdOsqHQ';
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoic29mdC13YXRlci01In0.w7EKy-OZgwCQ4Q-ubFRyyPMxegsO-QvqRSgAGDgAfQI';
 
 const user = {
-  id: 'ryan-0',
-  name: 'Ryan',
+  id: 'soft-water-5',
+  name: 'Soft water',
   image:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/768px-User_font_awesome.svg.png',
+    'https://stepupandlive.files.wordpress.com/2014/09/3d-animated-frog-image.jpg',
 };
 
 chatClient.setUser(user, userToken);
@@ -98,9 +98,8 @@ class CustomChannelPreview extends PureComponent {
 
 class ChannelListScreen extends PureComponent {
   static navigationOptions = () => ({
-    headerTitle: (
+    headerTitle: () =>
       <Text style={{ fontWeight: 'bold' }}>Whist Groups</Text>
-    ),
   });
 
   render() {
@@ -129,9 +128,8 @@ class ChannelScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const channel = navigation.getParam('channel');
     return {
-      headerTitle: (
-        <Text style={{ fontWeight: 'bold' }}>{channel.data.name}</Text>
-      ),
+      headerTitle: () =>
+        <Text style={{ fontWeight: 'bold' }}>{channel.data.name}</Text>,
     };
   };
 

@@ -5,6 +5,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import ProfileScreen from '../screens/ProfileScreen';
 import ExerciseScreen from '../screens/ExerciseScreen';
 import StreaksScreen from '../screens/StreaksScreen';
+import ChatScreen from "../screens/ChatScreen";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Profile';
@@ -32,6 +33,14 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={StreaksScreen}
         options={{
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="fire" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="GroupChat"
+        component={ChatScreen}
+        options={{
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="chat" />,
+          title: 'Group Chat'
         }}
       />
     </BottomTab.Navigator>

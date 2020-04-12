@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import { TextInput, Surface, Title, Button, Text} from 'react-native-paper';
+import {TextInput, Surface, Title, Button, Text} from 'react-native-paper';
+import * as SecureStore from 'expo-secure-store';
 
 export default function EntryScreen({navigation}) {
   const [username, setUsername] = useState('');
@@ -9,7 +10,39 @@ export default function EntryScreen({navigation}) {
   const [isLogin, setIsLogin] = useState(true);
 
   async function handleEntry() {
-    navigation.replace("Root");
+    let result;
+    if (isLogin) {
+      const response = await fetch('https://whist.eu.ngrok.io/auth/login', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({username, password})
+      });
+      navigation.replace("Root");
+      return;
+      result = await response.json();
+    } else {
+      const response = await fetch('https://whist.eu.ngrok.io/auth/register', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({username, password, email})
+      });
+
+      result = await response.json();
+    }
+    console.log("response:", result);
+
+    if (result.token) {
+      await SecureStore.setItemAsync('token', result.token);
+    } else {
+      console.log(result);
+    }
+
   }
 
   return (
@@ -100,6 +133,5 @@ const styles = StyleSheet.create({
   entrySwitch: {
     textAlign: 'center',
     textDecorationLine: 'underline',
-    color: 'purple'
   }
 });

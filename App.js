@@ -5,9 +5,12 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { Provider as PaperProvider } from 'react-native-paper';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import EntryScreen from './screens/EntryScreen';
+import Theme from './constants/Theme';
+
+
 
 const Stack = createStackNavigator();
 
@@ -41,23 +44,28 @@ export default function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <NavigationContainer
-          initialRouteName="Entry"
-        >
-          <Stack.Navigator>
-            <Stack.Screen name="Entry" component={EntryScreen} />
-            <Stack.Screen
-              name="Root"
-              component={BottomTabNavigator}
-              options={{
-                headerShown: false
-              }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </View>
+      <PaperProvider theme={Theme}>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <NavigationContainer
+            initialRouteName="Entry"
+          >
+            <Stack.Navigator screenOptions={{headerShown: false}}>
+              <Stack.Screen
+                name="Entry"
+                component={EntryScreen}
+              />
+              <Stack.Screen
+                name="Root"
+                component={BottomTabNavigator}
+                options={{
+                  headerShown: false
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </View>
+      </PaperProvider>
     );
   }
 }

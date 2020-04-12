@@ -1,41 +1,69 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import {LinearGradient} from 'expo-linear-gradient';
-import TouchableScale from 'react-native-touchable-scale';
-import { List, Avatar, Title } from 'react-native-paper';
+import { List, Title } from 'react-native-paper';
+import {Avatar} from 'react-native-elements'
 
-export default function StreaksScreen() {
-  const users = {
-
-  };
+export default function StreaksScreen({navigation}) {
+  const users = [
+    {
+      name: 'Blake Young',
+      streak: 90
+    },
+    {
+      name: 'Oliwier Bob',
+      streak: 87
+    },
+    {
+      name: 'Malcolm Osborn',
+      streak: 64
+    },
+    {
+      name: 'Ashton Blankenship',
+      streak: 53
+    }
+  ];
 
   return (
     <View style={styles.container}>
       <Title style={{
         fontWeight: 'bold',
         fontSize: 30,
-        padding: 20
+        padding: 30,
+        paddingBottom: 20,
       }}>Streaks</Title>
       <FlatList
         data={users}
-        keyExtractor={(item) => item?.id ?? Math.random()}
+        keyExtractor={(item) => item?.id ?? Math.random().toString()}
         renderItem={({item: user}) => {
+          const defaultAvatar = 'https://www.digitalamerica.org/wp-content/uploads/2014/01/facebook-default-no-profile-pic.jpg';
           return (
             <List.Item
               title={user.name}
-              description={`${user.streak} days`}
-              left={props => <Avatar.Image
-                source={require('../assets/images/robot-prod.png')}
-              />}
-              right={props => <List.Icon
-                color="black"
-                icon="chevron-right"
-              />}
+              onPress={() => {
+                navigation.navigate("UserProfileScreen", user);
+              }}
+              description={<Text style={{fontWeight: 'bold'}}>
+                {user.streak} day streak
+              </Text>}
+              left={() =>
+                <View style={{flex: -1, justifyContent: 'center'}}>
+                  <Avatar
+                    source={{uri: user.avatar || defaultAvatar}}
+                    rounded={true}
+                  />
+                </View>
+              }
+              right={() =>
+                <List.Icon
+                  color="black"
+                  icon="chevron-right"
+                  style={{margin: 0, padding: 0}}
+                />
+              }
             />
           );
         }}
       />
-
     </View>
   );
 }
