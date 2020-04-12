@@ -32,14 +32,17 @@ export default function ProfileScreen() {
           name="dumbbell"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Workouts Completed"
+          amount={12}
         />
         <StatBox
-          name="dumbbell"
+          name="medal"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
+          title="Challenges Won"
         />
         <StatBox
-          name="dumbbell"
+          name="account"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
+          title="Connected Friends"
         />
       </View>
       <View style={styles.overviewContainer}>
@@ -121,8 +124,7 @@ const styles = StyleSheet.create({
   statsContainer: {
     flex: -1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
-
-
+    justifyContent: 'space-between',
+    marginTop: CONTAINER_PADDING
   }
 });
