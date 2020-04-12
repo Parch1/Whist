@@ -10,14 +10,31 @@ export default function StatBox(props) {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 20
+      padding: 20,
+      position: 'relative'
     }, props.style]}>
       <MaterialCommunityIcons
         name={props.name}
-        size={40}
+        size={70}
         color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+        style={{opacity: 0.3}}
       />
-      <Text style={{fontWeight: 'bold', textAlign: 'center'}}>{props.title}</Text>
+      <View style={{
+        position: 'absolute',
+        zIndex: 1,
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Text style={{
+          fontWeight: 'bold',
+          fontSize: 30,
+        }}>{props.amount}</Text>
+        <Text style={{fontWeight: 'bold', textAlign: 'center', paddingHorizontal: 20}}>{props.title}</Text>
+      </View>
     </View>
   );
 }

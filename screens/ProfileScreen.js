@@ -38,11 +38,13 @@ export default function ProfileScreen() {
           name="medal"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Challenges Won"
+          amount={5}
         />
         <StatBox
           name="account"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Connected Friends"
+          amount={7}
         />
       </View>
       <View style={styles.overviewContainer}>
@@ -119,7 +121,8 @@ const styles = StyleSheet.create({
   username: {
     color: 'white',
     margin: 5,
-    fontSize: 30
+    fontSize: 30,
+    fontWeight: 'bold'
   },
   statsContainer: {
     flex: -1,
