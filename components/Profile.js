@@ -1,17 +1,22 @@
 import React from 'react';
 import {Dimensions, Text, View, StyleSheet} from 'react-native';
-import {Surface} from 'react-native-paper';
+import {Surface, Title} from 'react-native-paper';
 import {LinearGradient} from 'expo-linear-gradient';
 import {LineChart} from 'react-native-chart-kit';
 import StatBox from '../components/StatBox';
 import Theme from '../constants/Theme';
-import {Avatar} from 'react-native-elements';
+import {Avatar, Icon} from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {useNavigation} from '@react-navigation/native';
 
 const AVATAR_SIZE = 100;
 const BORDER_SIZE = 3;
 const CONTAINER_PADDING = 20;
 
-export default function Profile() {
+export default function Profile(props) {
+  const user = props.user;
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Surface style={styles.surface}>
@@ -21,13 +26,27 @@ export default function Profile() {
           end={[0.5, 1]}
           style={styles.avatarContainer}
         >
+          <Icon
+            name="chevron-left"
+            type="material-community"
+            size={40}
+            color="white"
+            containerStyle={{
+              position: 'absolute',
+              marginTop: 15,
+              top: 0,
+              left: 0,
+              alignSelf: 'flex-start'
+            }}
+            onPress={() => navigation.pop()}
+          />
           <Avatar
             style={styles.avatar}
             size={AVATAR_SIZE - 2 * BORDER_SIZE}
-            source={{uri: 'https://avatars1.githubusercontent.com/u/12504344?s=280&v=4'}}
+            source={{uri: user.avatar}}
             rounded
           />
-          <Text style={styles.username}>John Doe</Text>
+          <Text style={styles.username}>{user.name}</Text>
         </LinearGradient>
       </Surface>
       <View style={styles.statsContainer}>
@@ -41,13 +60,13 @@ export default function Profile() {
           name="fire"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Highest Streak"
-          amount={90}
+          amount={user.streak}
         />
         <StatBox
           name="account"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Connected Friends"
-          amount={7}
+          amount={user.friends}
         />
       </View>
       <View style={styles.overviewContainer}>
@@ -104,7 +123,8 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderWidth: BORDER_SIZE,
     borderRadius: 50,
-    borderColor: 'orange'
+    borderColor: 'orange',
+    marginTop: 10
   },
   avatarContainer: {
     flex: 1,

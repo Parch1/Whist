@@ -12,6 +12,8 @@ export default function EntryScreen({navigation}) {
   async function handleEntry() {
     let result;
     if (isLogin) {
+      navigation.replace("Root");
+      return;
       const response = await fetch('https://whist.eu.ngrok.io/auth/login', {
         method: 'post',
         headers: {
@@ -20,8 +22,6 @@ export default function EntryScreen({navigation}) {
         },
         body: JSON.stringify({username, password})
       });
-      navigation.replace("Root");
-      return;
       result = await response.json();
     } else {
       const response = await fetch('https://whist.eu.ngrok.io/auth/register', {
