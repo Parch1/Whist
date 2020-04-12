@@ -1,0 +1,2 @@
+# Whist
+Collaborative Exercise App
