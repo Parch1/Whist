@@ -1,3 +1,5 @@
+// TitanHacks2020: Leon Si, Ryan Lee, Yves J, Jonathan Mi
+
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { SplashScreen } from 'expo';
