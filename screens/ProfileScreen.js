@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 import {Avatar} from 'react-native-paper';
 
 export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       <Avatar.Image
-        size={24}
+        size={200}
         source={require('../assets/images/icon.png')}
       />
+
     </View>
   );
 }
@@ -16,6 +17,8 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    alignItems: 'center',
+    flexDirection: 'column',
+    margin: 20
   }
 });

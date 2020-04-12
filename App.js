@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import EntryScreen from './screens/EntryScreen';
-import HomeScreen from './screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
