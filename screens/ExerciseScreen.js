@@ -7,9 +7,15 @@ import ExerciseSearchScreen from './ExerciseSearchScreen';
 
 function ExerciseSearchBodyModel() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Title style={{ fontWeight: 'bold' }}>Select a body part to exercise:</Title>
-      <BodyModel />
+    <View style={{ flex: 1 }}>
+      <Title style={{
+        fontWeight: 'bold',
+        fontSize: 30,
+        padding: 20
+      }}>Exercises</Title>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: "center"}}>
+        <BodyModel />
+      </View>
     </View>
   )
 }
