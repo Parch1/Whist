@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import EntryScreen from './screens/EntryScreen';
+import { Avatar } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -43,10 +44,18 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <NavigationContainer initialRouteName="Entry">
+        <NavigationContainer
+          initialRouteName="Entry"
+        >
           <Stack.Navigator>
             <Stack.Screen name="Entry" component={EntryScreen} />
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
+            <Stack.Screen
+              name="Root"
+              component={BottomTabNavigator}
+              options={{
+                headerShown: false
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
