@@ -56,18 +56,18 @@ export default function EntryScreen({navigation}) {
       <Surface style={styles.entrySurface}>
         <View style={styles.formContainer}>
           {!isLogin ? <TextInput
-            label="Username"
-            value={username}
-            style={styles.input}
-            mode="outlined"
-            onChangeText={text => setUsername(text)}
-          /> : null}
-          <TextInput
             label="Email"
             value={email}
             style={styles.input}
             mode="outlined"
             onChangeText={text => setEmail(text)}
+          /> : null}
+          <TextInput
+            label="Username"
+            value={username}
+            style={styles.input}
+            mode="outlined"
+            onChangeText={text => setUsername(text)}
           />
           <TextInput
             label="Password"
@@ -75,6 +75,7 @@ export default function EntryScreen({navigation}) {
             style={styles.input}
             mode="outlined"
             onChangeText={text => setPassword(text)}
+            secureTextEntry={true}
           />
           <Button
             icon="login-variant"

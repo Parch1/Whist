@@ -54,7 +54,7 @@ export default function Profile(props) {
           name="dumbbell"
           style={{borderRightColor: 'gray', borderRightWidth: 1}}
           title="Workouts Completed"
-          amount={12}
+          amount={392}
         />
         <StatBox
           name="fire"
