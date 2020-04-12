@@ -4,7 +4,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import ProfileScreen from '../screens/ProfileScreen';
 import ExerciseScreen from '../screens/ExerciseScreen';
-import RankingsScreen from '../screens/RankingsScreen';
+import StreaksScreen from '../screens/StreaksScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Profile';
@@ -28,11 +28,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Rankings"
-        component={RankingsScreen}
+        name="Streaks"
+        component={StreaksScreen}
         options={{
-          title: 'Rankings',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="podium" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="fire" />,
         }}
       />
     </BottomTab.Navigator>

@@ -4,22 +4,26 @@ import {LinearGradient} from 'expo-linear-gradient';
 import TouchableScale from 'react-native-touchable-scale';
 import { List, Avatar, Title } from 'react-native-paper';
 
-export default function RankingsScreen() {
+export default function StreaksScreen() {
+  const users = {
+
+  };
+
   return (
     <View style={styles.container}>
       <Title style={{
         fontWeight: 'bold',
         fontSize: 30,
         padding: 20
-      }}>Rankings</Title>
+      }}>Streaks</Title>
       <FlatList
-        data={[null, null, null]}
+        data={users}
         keyExtractor={(item) => item?.id ?? Math.random()}
-        renderItem={({item}) => {
+        renderItem={({item: user}) => {
           return (
             <List.Item
-              title="Item"
-              description="some descirption"
+              title={user.name}
+              description={`${user.streak} days`}
               left={props => <Avatar.Image
                 source={require('../assets/images/robot-prod.png')}
               />}
